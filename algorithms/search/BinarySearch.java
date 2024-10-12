@@ -15,13 +15,13 @@ public class BinarySearch {
     int left = 0;
     int right = numbers.length - 1;
 
-    while (left < right) {
-      int half = right / 2;
+    while (left <= right) {
+      int half = left + (right - left) / 2;
 
       if (target < numbers[half]) {
-        right = half;
+        right = half - 1;
       } else if (target > numbers[half]) {
-        left = half;
+        left = half + 1;
       } else {
         return half;
       }
@@ -32,8 +32,8 @@ public class BinarySearch {
 
 
   public static void main(String[] args) {
-    int[] numbers = new int[] {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+    int[] numbers = new int[] {1, 2, 3, 4, 5, 6, 7, 8, 9};
 
-    System.out.println("The number is at index: " + binarySearch(numbers, 3));
+    System.out.println("The number is at index: " + binarySearch(numbers, 1));
   }
 }
